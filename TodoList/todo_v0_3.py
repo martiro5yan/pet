@@ -73,7 +73,7 @@ def Creating_a_task_list():
 
 # Вывод задач
 def Output_of_tasks(filename=road_file,day=today):
-    #os.system('cls')
+    os.system('cls')
     if os.path.exists(filename):#Вывод задач, по умолчанию актуальный день
         with open(filename, 'r', encoding='UTF-8') as file:
                 tasks_list = file.readlines()
@@ -123,6 +123,7 @@ def main(road_file,today):
     if os.path.exists(road_file ): # проверка
         Output_of_tasks()
     else:
+        print()
         print(f'---  {today}  ---')
         print('На сегодня задач нет!\n')
 
