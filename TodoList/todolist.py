@@ -59,7 +59,7 @@ def Creating_a_file_name():
         time.sleep(3)
         print('Ха, Наебал!')
         time.sleep(1)
-        Creating_a_file_name()
+        Creating_a_file()
 
 def Adding_tasks(filename,list_task):
 #баг если файл существует но пустой , не получится вписать
