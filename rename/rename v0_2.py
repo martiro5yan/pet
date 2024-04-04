@@ -54,11 +54,13 @@ def main():
                 file_format = file[-3:]
                 count += 1
                 # Создаем новое имя файла с учетом номера
-                if shop == 'DM' or shop == 'BP': # Проверка магазина и создание нового имени файла
-                    minus_6 = file[6:]
-                    ind = (minus_6.find(' '))
-                    new_file_name = f'{new_name}_{minus_6[:ind]}_{shop}.{file_format}'
-                    rename_file(new_file_name,directory_path,file)
+                if shop == 'DM' or shop == 'BP':
+                    if file[-3:] == 'jpg':
+                        file_format = file[-3:] # Проверка магазина и создание нового имени файла
+                        minus_6 = file[6:]
+                        ind = minus_6.find(' ')
+                        new_file_name = f'{new_name}_{minus_6[:ind]}_{shop}.{file_format}'
+                        rename_file(new_file_name,directory_path,file)
                 else:           # Создание нового имени файла без привязки к магазину
                     ind = (file.find(' '))
                     new_file_name = f'{new_name}_{file[:ind]}.{file_format}'
