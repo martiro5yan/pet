@@ -44,7 +44,7 @@ def priority_selection():
 def Creating_a_file_name():
     new_data = Checking_the_string()
     try:
-        testDay = today.replace(month=new_data[0],day=new_data[1])# день введенный пользователем
+        testDay = today.replace(month=new_data[1],day=new_data[0])# день введенный пользователем
         Creating_a_file_name.aDay = testDay
         new_path = str(Creating_a_file_name.aDay)+'.txt'
         new_path= f'{current_directory}\\{new_path}'
