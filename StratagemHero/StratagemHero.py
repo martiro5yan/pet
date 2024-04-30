@@ -14,7 +14,6 @@ Stratagems = {
     6: ['⬇', '⬆', '⬅', '⬆', '⮕', '⬇']
 }
 
-
 def convector(stratagem_arrow):
     stratagem_wasd = []
 
@@ -64,7 +63,7 @@ def The_corhrect_symbol(c): # Вывод правильного символа
 def start():
 
     beginning = time.time()  # Получаем текущее время в секундах
-    time_limit = 10  # Лимит времени выполнения в секундах
+    time_limit = 33  # Лимит времени выполнения в секундах
     glasses = 0
 
     while time.time() - beginning < time_limit:
@@ -91,7 +90,7 @@ def start():
 menuDict = {1: start}
 
 def menu():
-    os.system('cls')
+    #os.system('cls')
     menu.username = input('Введите username: ')
     print()
     print('1. Start / Старт')
@@ -99,6 +98,4 @@ def menu():
     if choice == 1:
         menuDict[choice]()
         
-
-
 menu()
