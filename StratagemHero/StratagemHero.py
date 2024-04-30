@@ -73,7 +73,7 @@ def start():
         os.system('cls')
         print(*stratagem_arrow,Style.RESET_ALL)
         for i in stratagem_wasd:
-            x = msvcrt.getch().upper().decode('utf-8')
+            x = msvcrt.getch().upper().decode('utf-8').upper()
             if x == i:
                 print(The_corhrect_symbol(x),end='',flush=True)
                 continue
@@ -92,7 +92,12 @@ menuDict = {1: start}
 def menu():
     #os.system('cls')
     menu.username = input('Введите username: ')
+    
     print()
+    print('Для набора используйте WASD')
+    print('Переключите на ENG расскладку')
+    print()
+
     print('1. Start / Старт')
     choice = int(input(': '))
     if choice == 1:
