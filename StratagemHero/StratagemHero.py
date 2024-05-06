@@ -28,9 +28,12 @@ def convector(stratagem_arrow):
             stratagem_wasd.append('W')
     return stratagem_wasd
 
-def Withdrawal_of_points_scored(glasses):
+def Withdrawal_of_points_scored(glasses,game_time,blunders):
     init()
     print(f'{menu.username} набрал {Fore.GREEN+str(glasses)} стратОчков',Style.RESET_ALL)
+    print()
+    print(f'Время игры: {game_time}')
+    print(f'Промахи: {blunders}')
     menu()
 
 def The_wrong_character(c): # Вывод НЕправильного символа
@@ -62,11 +65,13 @@ def The_corhrect_symbol(c): # Вывод правильного символа
 
 def start():
 
-    beginning = time.time()  # Получаем текущее время в секундах
-    time_limit = 33  # Лимит времени выполнения в секундах
-    glasses = 0
+    start = time.time()  # Получаем текущее время в секундах
+    time_limit = 1  # Лимит времени выполнения в секундах
 
-    while time.time() - beginning < time_limit:
+    glasses = 0
+    blunders = 0
+
+    while time.time() - start < time_limit:
         key = random.randint(1, 6)
         stratagem_arrow = Stratagems[key]
         stratagem_wasd = convector(stratagem_arrow)
@@ -76,16 +81,22 @@ def start():
             x = msvcrt.getch().upper().decode('utf-8').upper()
             if x == i:
                 print(The_corhrect_symbol(x),end='',flush=True)
+                time_limit += 1
                 continue
             elif x == 'E':
                 menu()
             else:
                 print(The_wrong_character(x),end='',flush=True)
+
+                time_limit -= 2
+                blunders += 1
                 glasses -= 1
         else:
             print()
             glasses += 5
-    Withdrawal_of_points_scored(glasses)
+    end = time.time()
+    game_time = end - start
+    Withdrawal_of_points_scored(glasses,game_time,blunders)
 
 menuDict = {1: start}
 

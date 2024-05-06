@@ -1,3 +1,4 @@
 ('asdasd asda sd', 4)
 ('asdas czxcx', 2)
 ('xcvxcvxv', 1)
+('фывфывфывфыв', 12)
